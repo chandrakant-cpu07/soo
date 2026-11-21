@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Small Universe for You</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--cream:#f8f0e8;--gold:#e8c98c;--rose:#e89aa8;--night:#090d1c}
+body{margin:0;background:var(--night);color:var(--cream);font-family:Georgia,serif;overflow-x:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:1}
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 20px 55px;position:relative}
+.hero-inner{max-width:780px}
+.overline{font:10px Arial;letter-spacing:.36em;text-transform:uppercase;color:var(--gold)}
+h1{font-weight:400;font-size:clamp(46px,9vw,100px);line-height:1.02;letter-spacing:-.04em;margin:25px 0}
+h1 em{color:var(--rose);font-weight:400}
+.intro{font-size:18px;line-height:1.8;color:#c7c5d1;max-width:570px;margin:0 auto}
+.orbit{width:230px;height:230px;margin:30px auto 22px;position:relative;display:grid;place-items:center}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #e8c98c55;border-radius:50%;inset:0;animation:spin 15s linear infinite}
+.orbit:after{inset:22px;border-color:#e89aa855;animation-direction:reverse;animation-duration:11s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.core{width:72px;height:72px;border-radius:50%;background:radial-gradient(circle,#fff4d5 0,#e8c98c 18%,#e89aa8 45%,#a34470 70%,transparent 73%);box-shadow:0 0 30px #e89aa8aa,0 0 75px #e89aa855;animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{transform:scale(1.12);filter:brightness(1.25)}}
+.dot{position:absolute;width:9px;height:9px;background:var(--gold);border-radius:50%;box-shadow:0 0 13px var(--gold)}
+.d1{top:10px;left:105px}.d2{right:2px;top:112px;background:var(--rose)}.d3{bottom:14px;left:35px;width:6px;height:6px}
+.btn{border:1px solid var(--gold);background:transparent;color:var(--cream);padding:15px 27px;cursor:pointer;font:11px Arial;letter-spacing:.2em;text-transform:uppercase;transition:.25s}
+.btn:hover{background:var(--gold);color:#111425;box-shadow:0 0 30px #e8c98c55}
+.scroll{position:absolute;bottom:24px;color:#898a9c;font:9px Arial;letter-spacing:.3em}
+section{padding:95px 20px}
+.wrap{max-width:800px;margin:auto}
+.kicker{text-align:center;color:var(--gold);font:10px Arial;letter-spacing:.3em;text-transform:uppercase}
+h2{text-align:center;font-size:clamp(32px,6vw,55px);font-weight:400;margin:15px 0 30px}
+.note{border-top:1px solid #e8c98c55;border-bottom:1px solid #e8c98c55;padding:38px clamp(18px,5vw,55px);font-size:18px;line-height:2;color:#ded9e1}
+.note p{margin:0 0 17px}
+.note .sign{text-align:right;color:var(--rose);font-style:italic;margin-top:28px}
+.pause{background:#11172a99}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+.step{border:1px solid #e8c98c44;padding:24px 16px;text-align:center;background:#ffffff06}
+.step .num{color:var(--rose);font-size:27px;display:block;margin-bottom:10px}
+.step p{font:13px/1.7 Arial;color:#c7c5d1;margin:0}
+.question{text-align:center}
+.question p{max-width:570px;margin:0 auto;color:#c7c5d1;font-size:18px;line-height:1.8}
+.choices{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+#answer{min-height:35px;margin-top:24px;color:var(--gold);font-size:17px;line-height:1.7}
+footer{text-align:center;padding:28px 15px 42px;color:#777d91;font:9px Arial;letter-spacing:.23em}
+@media(max-width:620px){.steps{grid-template-columns:1fr}.orbit{width:190px;height:190px}.hero{min-height:95svh}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<main>
+<header class="hero">
+ <div class="hero-inner">
+  <div class="overline">A message beyond words</div>
+  <h1>In a universe<br>of <em>moments,</em><br>you matter.</h1>
+  <p class="intro">For Khirabdee Tanaya Behera.<br>No pictures. No grand promises. Just a little universe carrying a message from my heart.</p>
+  <div class="orbit" aria-hidden="true"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="core"></div></div>
+  <button class="btn" onclick="document.getElementById('letter').scrollIntoView({behavior:'smooth'})">Enter my little universe ↓</button>
+ </div>
+ <div class="scroll">SCROLL GENTLY · TAKE YOUR TIME</div>
+</header>
+
+<section id="letter">
+ <div class="wrap">
+  <div class="kicker">A note from Chandrakant</div>
+  <h2>If I could rewind that moment...</h2>
+  <div class="note">
+   <p>My dear Khirabdee,</p>
+   <p>I wish I had taken a breath before speaking. I let my anger and frustration guide my words during our argument, and I am truly sorry for hurting you.</p>
+   <p>You deserved patience and understanding from me, not an argument. My feelings may have been strong in that moment, but that does not excuse the way I reacted.</p>
+   <p>I cannot rewind time, but I can learn from what happened. I want to become better at listening, staying calm, and speaking with kindness even when things are difficult.</p>
+   <p>I don't expect one message to fix everything. You can take the time and space you need. I just wanted to own my mistake and tell you sincerely: I'm sorry.</p>
+   <p class="sign">With care, always,<br>Chandrakant ♡</p>
+  </div>
+ </div>
+</section>
+
+<section class="pause">
+ <div class="wrap">
+  <div class="kicker">A promise is a beginning</div>
+  <h2>What I want to do differently</h2>
+  <div class="steps">
+   <div class="step"><span class="num">01</span><p>Pause when I feel angry instead of reacting immediately.</p></div>
+   <div class="step"><span class="num">02</span><p>Listen to your feelings without turning it into a fight.</p></div>
+   <div class="step"><span class="num">03</span><p>Show you respect through consistent actions.</p></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap question">
+  <div class="kicker">No pressure, ever</div>
+  <h2>When you're ready</h2>
+  <p>I'd be grateful for a chance to listen and understand your side. But I respect your feelings and your time, whatever you need right now.</p>
+  <div class="choices">
+   <button class="btn" onclick="respond('Thank you. I will listen with an open heart. ♡')">We can talk</button>
+   <button class="btn" onclick="respond('I understand. Take all the time you need. ♡')">I need time</button>
+  </div>
+  <div id="answer" aria-live="polite"></div>
+ </div>
+</section>
+<footer>A SMALL UNIVERSE · MADE WITH SINCERITY BY CHANDRAKANT SAHOO</footer>
+</main>
+<script>
+const canvas=document.getElementById('sky'),ctx=canvas.getContext('2d');
+let stars=[],w=0,h=0;
+function resize(){const d=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0);stars=Array.from({length:Math.min(150,Math.floor(w*h/8000))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.3,a:Math.random()*.65+.15,s:Math.random()*.007+.002}));}
+function draw(){ctx.clearRect(0,0,w,h);for(const p of stars){p.a+=p.s;if(p.a>.85||p.a<.12)p.s*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,230,210,${p.a})`;ctx.fill();}requestAnimationFrame(draw)}
+addEventListener('resize',resize);resize();draw();
+function respond(t){document.getElementById('answer').textContent=t;}
+</script>
+</body>
+</html>
